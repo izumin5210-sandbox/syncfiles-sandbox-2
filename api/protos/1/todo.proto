@@ -19,12 +19,6 @@ service TodoService {
       body: "todo"
     };
   }
-  rpc UpdateTodo (UpdateTodoRequest) returns (Todo) {
-    option (google.api.http) = {
-      patch: "/todos/{todo.todo_id}"
-      body: "todo"
-    };
-  }
   rpc DeleteTodo (DeleteTodoRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/todos/{todo_id}"
@@ -46,10 +40,6 @@ message ListTodosResponse {
 }
 
 message CreateTodoRequest {
-  Todo todo = 1;
-}
-
-message UpdateTodoRequest {
   Todo todo = 1;
 }
 
